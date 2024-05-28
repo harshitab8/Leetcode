@@ -1,0 +1,19 @@
+class Solution {
+    public long getDescentPeriods(int[] prices) {
+        int n=prices.length;
+        long count=0;
+        for (int i=0, j=1; j<n; j++)
+        {
+            if(prices[j]==prices[j-1]-1)
+            {
+               count+=j-i+1;
+            }
+            else 
+            {
+                i=j;
+                count+=j-i+1;
+            }
+        }
+        return count+1;
+    }
+}
