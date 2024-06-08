@@ -1,0 +1,25 @@
+class Solution {
+    public long sumDigitDifferences(int[] nums) {
+        long ans=0;
+        int n=nums.length;
+        int m=(nums[0]+"").length();
+        while(m>0)
+        {
+            int[] freq=new int[10];
+            for(int i=0;i<n;i++)
+            {
+                int rem=nums[i]%10;
+                freq[rem]++;
+                nums[i]=nums[i]/10;
+            }
+            long temp=0;
+            for(int i=0;i<10;i++)
+            {
+                temp+=freq[i]*(n-freq[i]);
+            }
+            ans+=temp/2;
+            m--;
+        }
+        return ans;
+    }
+}
