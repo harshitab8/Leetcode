@@ -1,0 +1,19 @@
+class Solution {
+    public int numberOfRounds(String loginTime, String logoutTime) {
+        int ans=0;
+        int SH=Integer.parseInt(loginTime.substring(0,2));
+        int SM=Integer.parseInt(loginTime.substring(3));
+        int EH=Integer.parseInt(logoutTime.substring(0,2));
+        int EM=Integer.parseInt(logoutTime.substring(3));
+        SH=SH*60+SM;
+        EH=EH*60+EM;
+        if(SH>EH)
+        {
+            EH=EH+24*60;
+        }
+        if(EH-SH<15)
+        return 0;
+        ans=(int)(Math.floor(EH/15.00))-(int)(Math.ceil(SH/15.00));
+        return ans;
+    }
+}
