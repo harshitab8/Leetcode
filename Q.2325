@@ -1,0 +1,28 @@
+class Solution {
+    public String decodeMessage(String key, String message) {
+        char[] hash = new char[26];
+        HashSet<Character> set = new HashSet<>();
+        int count=0;
+        for(int i=0;i<key.length();i++)
+        {
+            char c=key.charAt(i);
+            if(!set.contains(c) && c!=' ')
+            {
+                hash[c-'a']=(char)('a' +count);
+                count++;
+                set.add(c);
+            }
+        }
+        StringBuilder ans=new StringBuilder();
+        for(char i:message.toCharArray())
+        {
+            if(i==' ')
+            {
+                ans.append(' ');
+                continue;
+            }
+            ans.append(hash[i-'a']);
+        }
+        return ans.toString();
+    }
+}
