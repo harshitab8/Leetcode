@@ -1,0 +1,29 @@
+class Solution {
+    public List<List<Integer>> groupThePeople(int[] groupSizes) {
+        int n=groupSizes.length;
+        List<List<Integer>> ans= new ArrayList<>();
+        for(int i=0; i<n; i++)
+        {
+            if(groupSizes[i]==0)
+            continue;
+            int a=groupSizes[i];
+            List<Integer> L=new ArrayList<>();
+            int count=1;
+            L.add(i);
+            groupSizes[i]=0;
+            for(int j=i+1; j<n; j++)
+                {
+                    if(L.size()==a)
+                    break;
+                    if(groupSizes[j]==a)
+                    {
+                        L.add(j);
+                        groupSizes[j]=0;
+                        count++;
+                    }
+                }
+                ans.add(L);
+        }
+        return ans;
+    }
+}
