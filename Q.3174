@@ -1,0 +1,21 @@
+class Solution {
+    public String clearDigits(String s) {
+        StringBuilder ans = new StringBuilder();
+        for (char ch : s.toCharArray()) 
+        {
+            if(Character.isDigit(ch))
+            {
+                int length = ans.length();
+                if (length > 0 && !Character.isDigit(ans.charAt(length - 1))) 
+                {
+                    ans.deleteCharAt(length - 1);
+                }
+            } 
+            else 
+            {
+                ans.append(ch);
+            }
+        }
+        return ans.toString();
+    }
+}
