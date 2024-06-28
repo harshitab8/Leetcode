@@ -1,0 +1,23 @@
+class Solution {
+    public int numberOfChild(int n, int k) {
+        int index=0;
+        while(k>0)
+        {
+            index++;
+            k--;
+            if(index==n-1 && k>0)
+            {
+                for(int j=index-1; j>=0; j--)
+                {
+                    index=j;
+                    k--;
+                    if(k==0)
+                    {
+                        return index;
+                    }
+                }
+            }
+        }
+        return index;
+    }
+}
