@@ -1,0 +1,18 @@
+class Solution {
+    public int minOperations(int[] nums) {
+        int flips=0;
+        int n=nums.length;
+        for(int i=1; i<n; i++)
+        {
+            if(nums[i]!=nums[i-1])
+            {
+                flips++;
+            }
+        }
+        if(nums[0]==0) 
+        {
+            flips++;
+        } 
+        return flips;
+    }
+}
