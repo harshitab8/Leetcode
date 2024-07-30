@@ -1,0 +1,40 @@
+class Solution {
+    public int minimumArea(int[][] grid) {
+        int minRow=Integer.MAX_VALUE;
+        int maxRow=Integer.MIN_VALUE;
+        int minCol=Integer.MAX_VALUE;
+        int maxCol=Integer.MIN_VALUE;
+        for(int r=0; r<grid.length; r++) 
+        {
+            for(int c=0; c<grid[0].length; c++) 
+            {
+                if(grid[r][c]==1) 
+                {
+                    if(r<minRow) 
+                    {
+                        minRow=r;
+                    }
+                    if(r>maxRow) 
+                    {
+                        maxRow=r;
+                    }
+                    if(c<minCol) 
+                    {
+                        minCol=c;
+                    }
+                    if(c>maxCol) 
+                    {
+                        maxCol=c;
+                    }
+                }
+            }
+        }
+        if(minRow==Integer.MAX_VALUE)
+        {
+            return 0; 
+        }
+        int h=maxRow-minRow+1;
+        int w=maxCol-minCol+1;
+        return h*w;
+    }
+}
